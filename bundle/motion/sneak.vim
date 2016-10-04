@@ -12,6 +12,7 @@ let g:sneak#t_reset = 1
 " target selection
 let g:sneak#label = 1
 let g:sneak#label_esc = "\<CR>"
+let g:sneak#target_labels = 'aoeuidhtnspyfgcrlqjkxbmwvzAOEUIDHTNSPYFGCRLQJKXBMWVZ'
 
 Shortcut! f (sneak) repeat last sneak or sneak forward onto {char}
 Shortcut! F (sneak) repeat last sneak or sneak backward onto {char}
