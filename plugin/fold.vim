@@ -14,11 +14,11 @@ nnoremap <A-S-Down> zO
 nnoremap <A-Up> zc
 nnoremap <A-S-Up> zC
 
-" change the foldlevel
-nnoremap <A-Left> zm
-nnoremap <A-S-Left> zM
-nnoremap <A-Right> zr
-nnoremap <A-S-Right> zR
+" " change the foldlevel
+" nnoremap <A-Left> zm
+" nnoremap <A-S-Left> zM
+" nnoremap <A-Right> zr
+" nnoremap <A-S-Right> zR
 
 Shortcut close all other folds in buffer
       \ nnoremap <Space>Dz zMzv

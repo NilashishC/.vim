@@ -16,9 +16,11 @@ Shortcut expose last tab
 
 Shortcut expose next tab
       \ nnoremap <silent> <Space>nt :tabnext<CR>
+      \|nnoremap <silent> <A-Right> :tabnext<CR>
 
 Shortcut expose previous tab
       \ nnoremap <silent> <Space>Nt :tabprevious<CR>
+      \|nnoremap <silent> <A-Left> :tabprevious<CR>
 
 Shortcut move tab to first place
       \ nnoremap <silent> <Space>^t :tabmove 0<CR>
