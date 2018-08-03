@@ -4,7 +4,7 @@ Shortcut (NERDCommenter) toggle alternate comment delimiters
       \ map <Space>tC <Plug>NERDCommenterAltDelims
 
 Shortcut (NERDCommenter) uncomment, deleting comment delimiters
-      \ map <Space>uc <Plug>NERDCommenterUncomment
+      \ map <Space>dc <Plug>NERDCommenterUncomment
 
 Shortcut (NERDCommenter) comment, aligning both delimiters
       \ map <Space>=c <Plug>NERDCommenterAlignBoth
