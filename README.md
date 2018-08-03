@@ -412,6 +412,7 @@ Shortcut              | Description
 ``<Space>db``         | (sayonara) close buffer while retaining window
 ``<Space>DB``         | (wipeout) destroy all buffers not open in any tabs or windows
 ``<Space>Db``         | close all buffers
+``<Space>dc``         | (NERDCommenter) uncomment, deleting comment delimiters
 ``<Space>de``         | (errormarker) remove all error markers from signcolumn
 ``<Space>df``         | (eunuch) prompt to delete file
 ``<Space>Dg``         | (fugitive) git rm -f: delete file from repository forcefully
@@ -531,7 +532,6 @@ Shortcut              | Description
 ``<Space>tv``         | (goyo) toggle distraction-free writing mode
 ``<Space>tV``         | (limelight) toggle enhancement for distraction-free writing mode
 ``<Space>tx``         | (scratch) toggle scratch buffer preview
-``<Space>uc``         | (NERDCommenter) uncomment, deleting comment delimiters
 ``<Space>ug``         | (GitGutter) revert git hunk at cursor
 ``<Space>Uw``         | show history of recently closed windows
 ``<Space>uw``         | undo/restore most recently closed window
