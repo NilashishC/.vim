@@ -276,10 +276,10 @@ function! Format_elixir_funcall_to_pipeline() abort
 
   " delete any comma that came with it
   normal! Bge
-  keeppatterns execute 'silent! s/\%' . col('.') . 'c,\s*/ /'
+  keeppatterns silent! execute 's/\%' . col('.') . 'c,\s*/ /'
 
   " delete leftover empty parentheses
-  keeppatterns execute 'silent! s/\%>' . col('.') . 'c(\s*)//'
+  keeppatterns silent! execute 's/\%>' . col('.') . 'c(\s*)//'
 
   call winrestview(cursor)
 endfunction
