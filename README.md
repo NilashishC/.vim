@@ -459,8 +459,8 @@ Shortcut              | Description
 ``<Space>f_``         | format as separator, repeating last character to end of line
 ``<Space>fa``         | (argwrap) toggle multi-line syntax at cursor
 ``<Space>fc``         | format as markdown fenced code block
-``<Space>fJ``         | format elixir pipeline from multi to single-line at cursor
-``<Space>fK``         | format elixir pipeline from single to multi-line at cursor
+``<Space>fJ``         | format elixir pipeline at cursor: join into a single line
+``<Space>fK``         | format elixir pipeline at cursor: split into multiple lines
 ``<Space>fP``         | format elixir function call to pipeline at cursor
 ``<Space>fp``         | format elixir pipeline to function call at cursor
 ``<Space>fs``         | (switch) cycle through alternate syntax at cursor

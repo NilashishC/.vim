@@ -68,11 +68,11 @@ Shortcut format elixir function call to pipeline at cursor
 Shortcut format elixir pipeline to function call at cursor
       \ nnoremap <silent> <Space>fp :call Format_elixir_pipeline_to_funcall()<CR>
 
-Shortcut format elixir pipeline from multi to single-line at cursor
+Shortcut format elixir pipeline at cursor: join into a single line
       \ nnoremap <silent> <Space>fJ :call Format_elixir_join_pipeline(0)<CR>
       \|vnoremap <silent> <Space>fJ :<C-U>call Format_elixir_join_pipeline(1)<CR>
 
-Shortcut format elixir pipeline from single to multi-line at cursor
+Shortcut format elixir pipeline at cursor: split into multiple lines
       \ nnoremap <silent> <Space>fK :call Format_elixir_split_pipeline(0)<CR>
       \|vnoremap <silent> <Space>fK :<C-U>call Format_elixir_split_pipeline(1)<CR>
 
