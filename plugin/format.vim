@@ -265,7 +265,7 @@ function! Format_elixir_funcall_to_pipeline() abort
   let cursor = winsaveview()
 
   " go to beginning of argument list
-  normal! %
+  normal! da(u
 
   " extract the very first argument
   " https://github.com/wellle/targets.vim
@@ -279,7 +279,8 @@ function! Format_elixir_funcall_to_pipeline() abort
   keeppatterns silent! execute 's/\%' . col('.') . 'c,\s*/ /'
 
   " delete leftover empty parentheses
-  keeppatterns silent! execute 's/\%>' . col('.') . 'c(\s*)//'
+  " NOTE: Elixir 1.6 discourages this
+  " keeppatterns silent! execute 's/\%>' . col('.') . 'c(\s*)//'
 
   call winrestview(cursor)
 endfunction
@@ -306,12 +307,20 @@ function! Format_elixir_pipeline_to_funcall() abort
     " look for next pipeline stage
     if search('|>', 'c', line('.'))
       normal! ge
+    elseif search('([^)]', '', line('.'))
+      " argument list already exists
+      execute 'normal! a, '
+      normal! b
     else
       normal! E
     endif
 
     " create a brand new argument list
-    normal! a()
+    if search('\%' . col('.') .'c(', 'cn', line('.'))
+      normal! l
+    else
+      normal! a()
+    endif
     normal! P
 
     " merge with existing argument list
