@@ -5,5 +5,5 @@ nnoremap Y y$
 " https://github.com/sunaku/home/blob/master/bin/yank
 silent call system('command -v yank')
 if !v:shell_error
-  noremap <silent> <Leader>y y:call system('yank > /dev/tty', @0)<CR>
+  noremap <silent> <Leader>y y:<C-U>call system('yank >/dev/tty', getreg(0))<CR>
 endif
