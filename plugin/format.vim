@@ -315,13 +315,14 @@ function! Format_elixir_pipeline_to_funcall() abort
       normal! E
     endif
 
-    " create a brand new argument list
     if search('\%' . col('.') .'c(', 'cn', line('.'))
-      normal! l
+      " argument list already exists
+      normal! p
     else
+      " make brand new argument list
       normal! a()
+      normal! P
     endif
-    normal! P
 
     " merge with existing argument list
     if search(')(', 'be', line('.'))
