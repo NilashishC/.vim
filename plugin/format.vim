@@ -103,7 +103,7 @@ function! Format_markdown_title() abort
   normal! yyp
 
   " strip leading whitespace from separator line
-  s/^\s*//
+  keeppatterns s/^\s*//
 
   " make all characters "=" in separator line
   normal! Vr=
@@ -112,7 +112,7 @@ function! Format_markdown_title() abort
   normal! ==
 
   " delete any previously existing separator line
-  .+g/^\s*=\+\s*/d
+  keeppatterns .+g/^\s*=\+\s*/d
 
   call winrestview(cursor)
 endfunction
@@ -126,7 +126,7 @@ function! Format_markdown_section() abort
   normal! yyp
 
   " strip leading whitespace from separator line
-  s/^\s*//
+  keeppatterns s/^\s*//
 
   " make all characters "-" in separator line
   normal! Vr-
@@ -135,7 +135,7 @@ function! Format_markdown_section() abort
   normal! ==
 
   " delete any previously existing separator line
-  .+g/^\s*-\+\s*/d
+  keeppatterns .+g/^\s*-\+\s*/d
 
   call winrestview(cursor)
 endfunction
@@ -151,15 +151,15 @@ function! Format_markdown_table_header() abort
   left
 
   " make all characters "-" and "|" in separator line
-  s/[^|]/-/g
-  s/-|/ |/g
-  s/|-/| /g
+  keeppatterns s/[^|]/-/g
+  keeppatterns s/-|/ |/g
+  keeppatterns s/|-/| /g
 
   " indent separator line to line up with title
   normal! ==
 
   " delete any previously existing separator line
-  .+g/^\s*[|-]\+\s*/d
+  keeppatterns .+g/^\s*[|-]\+\s*/d
 
   call winrestview(cursor)
 endfunction
@@ -168,7 +168,7 @@ endfunction
 " 2<']o<Esc>3i`<Esc>yy<C-O>PA
 function! Format_markdown_fenced_code() abort
   " remove markdown's 4-space indent for code blocks
-  silent! '<,'>s/^ \{4}//
+  keeppatterns silent! '<,'>s/^ \{4}//
 
   " add a fence at bottom of code block
   normal! '>o
@@ -276,10 +276,10 @@ function! Format_elixir_funcall_to_pipeline() abort
 
   " delete any comma that came with it
   normal! Bge
-  execute 'silent! s/\%' . col('.') . 'c,\s*/ /'
+  keeppatterns execute 'silent! s/\%' . col('.') . 'c,\s*/ /'
 
   " delete leftover empty parentheses
-  execute 'silent! s/\%>' . col('.') . 'c(\s*)//'
+  keeppatterns execute 'silent! s/\%>' . col('.') . 'c(\s*)//'
 
   call winrestview(cursor)
 endfunction
@@ -346,7 +346,7 @@ function! Format_elixir_join_pipeline(visual) abort
   endif
 
   " join lines broken on pipeline operators
-  silent! '<,'>s/\s*\n\s*\ze|>/ /
+  keeppatterns silent! '<,'>s/\s*\n\s*\ze|>/ /
   normal! :
 
   call winrestview(cursor)
@@ -362,7 +362,7 @@ function! Format_elixir_split_pipeline(visual) abort
   endif
 
   " break pipeline operators onto new lines
-  silent! '<,'>s/\ze|>/\r/g
+  keeppatterns silent! '<,'>s/\ze|>/\r/g
   normal! =
 
   call winrestview(cursor)
