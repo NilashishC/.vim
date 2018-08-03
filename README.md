@@ -744,10 +744,10 @@ Shortcut              | Description
 ``vag``               | (textobj) select around git hunk
 ``vai``               | (textobj) select around indentation level and line above
 ``vaI``               | (textobj) select around indentation level and lines above/below
+``vaK``               | (textobj) select around vertical WORD column
+``vak``               | (textobj) select around vertical word column
 ``val``               | (textobj) select around line
 ``van``               | (textobj) select around nearest block of specified delimiter
-``vaO``               | (textobj) select around vertical WORD column
-``vao``               | (textobj) select around vertical word column
 ``vap``               | (textobj) select around paragraph
 ``var``               | (textobj) select around Ruby/VimL block
 ``vaS``               | (textobj) select around text surrounded by automatic delimiters
@@ -784,10 +784,10 @@ Shortcut              | Description
 ``vig``               | (textobj) select inside git hunk
 ``vii``               | (textobj) select inside indentation level; no line above
 ``viI``               | (textobj) select inside indentation level; no lines above/below
+``vik``               | (textobj) select inside vertical word column
+``viK``               | (textobj) select inside vertical WORD column
 ``vil``               | (textobj) select inside line
 ``vin``               | (textobj) select inside nearest block of specified delimiter
-``viO``               | (textobj) select inside vertical WORD column
-``vio``               | (textobj) select inside vertical word column
 ``vip``               | (textobj) select inside paragraph
 ``vir``               | (textobj) select inside Ruby/VimL block
 ``viS``               | (textobj) select inside text surrounded by automatic delimiters
