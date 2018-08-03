@@ -195,13 +195,8 @@ endfunction
 
 " repeat last character to the maximum width of current line
 function! Format_separator_repeat_eol() abort
-  let last_search_register=@/
-  try
-    execute 's/.$/'. repeat('&', &textwidth+1) .'/'
-    execute 's/\%>'. &textwidth .'v.//g'
-  finally
-    let @/=last_search_register
-  endtry
+  keeppatterns execute 's/.$/'. repeat('&', &textwidth+1) .'/'
+  keeppatterns execute 's/\%>'. &textwidth .'v.//g'
 endfunction
 
 let s:insert_surround = "\<Plug>(operator-sandwich-add)"
