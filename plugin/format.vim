@@ -301,7 +301,7 @@ function! Format_elixir_pipeline_to_funcall() abort
     if search('|>\s*', 'bse', line('.'))
       normal! ld`'
     else
-      normal! d^
+      normal! dB
     endif
 
     " look for next pipeline stage
