@@ -318,6 +318,9 @@ function! Format_elixir_pipeline_to_funcall() abort
     if search('\%' . col('.') .'c(', 'cn', line('.'))
       " argument list already exists
       normal! p
+    elseif search('\%' . col('.') .'c,', 'cn', line('.'))
+      " argument list already exists
+      normal! bp
     else
       " make brand new argument list
       normal! a()
