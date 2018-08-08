@@ -3,7 +3,12 @@ nnoremap Y y$
 
 " copy to attached terminal using the yank(1) script:
 " https://github.com/sunaku/home/blob/master/bin/yank
-silent call system('command -v yank')
-if !v:shell_error
-  noremap <silent> <Leader>y y:<C-U>call writefile([system('yank', getreg(0))], '/dev/tty', 'b')<CR>
-endif
+noremap <silent> <Leader>y y:<C-U>call Yank(getreg(0))<CR>
+function! Yank(...) abort
+  let output = system('yank', a:000)
+  if v:shell_error
+    echoerr output
+  else
+    call writefile([output], '/dev/tty', 'b')
+  endif
+endfunction
