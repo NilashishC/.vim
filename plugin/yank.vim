@@ -3,7 +3,6 @@ nnoremap Y y$
 
 " copy to attached terminal using the yank(1) script:
 " https://github.com/sunaku/home/blob/master/bin/yank
-noremap <silent> <Leader>y y:<C-U>call Yank(getreg(0))<CR>
 function! Yank(text) abort
   let escape = system('yank', a:text)
   if v:shell_error
@@ -12,3 +11,4 @@ function! Yank(text) abort
     call writefile([escape], '/dev/tty', 'b')
   endif
 endfunction
+noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
