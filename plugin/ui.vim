@@ -11,3 +11,11 @@ set shortmess+=I               " skip splash screen when starting Vim
 set confirm                    " ask before doing anything destructive
 set synmaxcol=256              " don't syntax highlight very long lines
 set lazyredraw                 " skip rendering during macro execution
+
+" color entire statusline to indicate we're in insert mode
+augroup ui_statusline_colors
+  autocmd!
+  autocmd InsertEnter  * highlight! link StatusLine DiffAdd
+  autocmd InsertChange * highlight! link StatusLine DiffChange
+  autocmd InsertLeave  * highlight! link StatusLine NONE
+augroup END
