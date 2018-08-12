@@ -1,4 +1,4 @@
-set statusline+=%{fugitive#statusline()}
+set statusline+=\ %{substitute(fugitive#statusline(),'^.Git.\\(.*\\)..$','\\1','')}
 
 " https://github.com/tpope/vim-fugitive/pull/90
 autocmd QuickFixCmdPost *grep* cwindow
