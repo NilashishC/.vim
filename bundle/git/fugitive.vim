@@ -1,9 +1,4 @@
-autocmd VimEnter * call s:fugitive_my_settings()
-function! s:fugitive_my_settings()
-  if exists('*fugitive#statusline')
-    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-  endif
-endfunction
+set statusline+=%{fugitive#statusline()}
 
 " https://github.com/tpope/vim-fugitive/pull/90
 autocmd QuickFixCmdPost *grep* cwindow
