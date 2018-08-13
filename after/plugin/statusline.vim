@@ -1,14 +1,11 @@
 " https://hackernoon.com/the-last-statusline-for-vim-a613048959b2
+" https://www.reddit.com/r/vim/comments/6b7b08/my_custom_statusline
+" https://github.com/bluz71/vim-moonfly-statusline
 
-if !exists('g:statusline')
-  let g:statusline = &statusline
-  set statusline=%!MyStatusLine()
-endif
-
-function! MyStatusLine() abort
+function! MyStatusLine(statusline) abort
   let mode = mode(1)
   let color = get(g:mode_color, mode, '%#Error#')
-  return color .' '. mode .' '. g:statusline
+  return color .' '. mode .' '. a:statusline
 endfunction
 
 let g:mode_color           = {}              " see :help mode()
@@ -32,4 +29,11 @@ let g:mode_color['r?']     = '%#Todo#'       " A |:confirm| query of some sort
 let g:mode_color['!']      = '%#Folded#'     " Shell or external command is executing
 let g:mode_color['t']      = '%#DiffAdd#'    " Terminal mode: keys go to the job
 
-" TODO: insert mode is lighting up all windows
+augroup MyStatusLine
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter *
+        \ let statusline=&statusline |
+        \ setlocal statusline=%!MyStatusLine(statusline)
+  autocmd WinLeave,FilterWritePost *
+        \ setlocal statusline&
+augroup END
