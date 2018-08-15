@@ -4,11 +4,11 @@
 
 function! MyStatusLine(statusline) abort
   let mode = mode(1)
-  let color = get(g:mode_color, mode, '%#Error#')
+  let color = get(g:mode_color, mode, '%#ErrorMsg#')
   return color .' '. mode .' '. a:statusline
 endfunction
 
-let g:mode_color           = {}              " see :help mode()
+let g:mode_color           = {}              " from :help mode()
 let g:mode_color['n']      = ''              " Normal
 let g:mode_color['no']     = '%#DiffChange#' " Operator-pending
 let g:mode_color['v']      = '%#DiffText#'   " Visual by character
@@ -28,6 +28,7 @@ let g:mode_color['rm']     = '%#Todo#'       " The -- more -- prompt
 let g:mode_color['r?']     = '%#Todo#'       " A |:confirm| query of some sort
 let g:mode_color['!']      = '%#Folded#'     " Shell or external command is executing
 let g:mode_color['t']      = '%#DiffAdd#'    " Terminal mode: keys go to the job
+let g:mode_color['ic']     = '%#DiffChange#' " see :help ins-completion
 
 augroup MyStatusLine
   autocmd!
