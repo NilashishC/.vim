@@ -32,9 +32,17 @@ let g:mode_color['ic']     = '%#DiffChange#' " see :help ins-completion
 
 augroup MyStatusLine
   autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter *
+  " autocmd VimEnter    * echomsg 'VimEnter'    | setlocal statusline=VimEnter
+  " autocmd WinEnter    * echomsg 'WinEnter'    | setlocal statusline=WinEnter
+  " autocmd BufWinEnter * echomsg 'BufWinEnter' | setlocal statusline=BufWinEnter
+  " autocmd BufWinLeave * echomsg 'BufWinLeave' | setlocal statusline=BufWinLeave
+  " autocmd WinLeave    * echomsg 'WinLeave'    | setlocal statusline=WinLeave
+
+  autocmd WinEnter,BufWinEnter *
+        \ setlocal statusline& |
         \ let statusline=&statusline |
         \ setlocal statusline=%!MyStatusLine(statusline)
-  autocmd WinLeave,FilterWritePost *
+  autocmd WinLeave,BufWinLeave *
         \ setlocal statusline&
+
 augroup END
