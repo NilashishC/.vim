@@ -38,7 +38,7 @@ augroup MyStatusLine
   " autocmd BufWinLeave * echomsg 'BufWinLeave' | setlocal statusline=BufWinLeave
   " autocmd WinLeave    * echomsg 'WinLeave'    | setlocal statusline=WinLeave
 
-  autocmd WinEnter,BufWinEnter *
+  autocmd WinEnter,BufWinEnter,VimEnter *
         \ setlocal statusline& |
         \ let statusline=&statusline |
         \ setlocal statusline=%!MyStatusLine(statusline)
